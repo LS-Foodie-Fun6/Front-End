@@ -16,15 +16,15 @@ justify-content: center;
 align-items: center;
 `;
 
-function Register(props) => {
+function Register(props) {
     // --- useState, for the username, password, location and email ---
     // --- useState is a hook that allows you to have state variables in functional components ---
-    const [register, setRegister] = useState{(
+    const [register, setRegister] = useState({
         username: '',
         password: '',
         location: '',
         email: ''
-    )};
+    });
     //----------------------------------------------------------------------------
 
     // --- handleChange watches for the changes made in the login and password fields ---

@@ -21,7 +21,7 @@ align-items: center;
 
 
 // // ---Login Page Function ---
-function LoginForm() => {
+function LoginForm()  {
     // --- UseState, for the username and password ---
     // --- DEF: useState is a hook that allows you to have state variables in functional components ---
     const { register, handleSubmit, errors } = useForm();
