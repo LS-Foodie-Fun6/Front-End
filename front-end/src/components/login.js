@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 import ReactDOM from "react-dom";
 import { useForm } from "react-hook-form";
+import {Link} from 'react-router-dom';
 
 import axiosWithAuth from '../utils/axiosWithAuth';
 import axios from 'axios';
@@ -16,12 +17,27 @@ export default function Login(props) {
 // --- useForm ---
     const { register, handleSubmit, errors } = useForm();
 
+    ///////////////////////////////////
+    const [user,setUser] = useState({   
+        username: '',
+        password: ''
+     });
+
+    const handleChange = e => {
+        setUser({
+            ...user,
+            [e.target.name]: e.target.value
+        })}; 
+    ///////////////////////////////////
+
+
 // --- onSubmit ---
-    const onSubmit = login => {
-        console.log('data')
+    const onSubmit = e => {
+        e.preventDefault();
+        console.log(register)
     //axiosWithAuth()
     axios
-    .post('https://foodiefunsix.herokuapp.com/users/login', login)
+    .post('https://foodiefunsix.herokuapp.com/users/login', user)
     //.post('/users/login', login)
     .then(res => {
         console.log(res.data)
@@ -48,7 +64,12 @@ export default function Login(props) {
                 <input type="text"
                 name="username"
                 placeholder="username"
-                ref={ register({ required: true, minLength: 5, maxLength: 15})} />
+                ref={ register({ required: true, minLength: 5, maxLength: 15})} 
+                ////////////
+                value={user.username}
+                onChange={handleChange}
+                ///////////
+                />
             </label>
 
             {/* --- errors --- */}
@@ -72,7 +93,12 @@ export default function Login(props) {
                 type="password"
                 placeholder="Password"
                 name="password"
-                ref={ register ({ required: true, minLength: 3})} />
+                ref={ register ({ required: true, minLength: 3})} 
+                ///////////
+                value={user.password}
+                onChange={handleChange}
+                //////////
+                />
             
             {/* --- errors --- */}
             {errors.password && errors.password.type === "required" && (
@@ -86,6 +112,9 @@ export default function Login(props) {
         {/* --- Submit Button --- */}
                 <button className="button">Let's Eat!</button>
         {/*  --- End of Submit Button --- */}
+
+                <button className="button"> <Link to={'/register'}>Register</Link></button>
+
         {/* --- End of Form --- */}
             </form>
     {/* --- End of Login container --- */}

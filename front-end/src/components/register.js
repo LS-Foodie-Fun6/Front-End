@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 
 import registerUser from '../actions/userActions';
+import axios from 'axios';
 
 //--- Styled Components ---
 // const RegBG = styled.div`
@@ -11,18 +12,43 @@ import registerUser from '../actions/userActions';
 
 //-------------------------
 
-export default function RegistrationForm() {
+export default function RegistrationForm(props) {
 
 // --- useForm ---
     const { register, handleSubmit, errors } = useForm();
 // ---------------
 
+
+  ///////////////////////////////////
+  const [user,setUser] = useState({   
+    username: '',
+    password: '',
+    location: '',
+    email: '',
+ });
+
+const handleChange = e => {
+    setUser({
+        ...user,
+        [e.target.name]: e.target.value
+    })}; 
+///////////////////////////////////
+
+
 // --- onSubmit ---
-    // const onSubmit = data => {
-    //     // --- axios call here ---
-
-    // }
-
+const onSubmit = e => {
+    e.preventDefault();  
+//axiosWithAuth()
+axios
+.post('https://foodiefunsix.herokuapp.com/users/register', user)
+//.post('/users/login', login)
+.then(res => {
+    console.log(res.data)
+    // localStorage.setItem('token', res.data.token);
+    props.history.push('/');
+  })
+  .catch(err => console.log(err));
+}
 
     // --- Return Statement ---
     return (
@@ -32,7 +58,7 @@ export default function RegistrationForm() {
             {/* <form onSubmit={handleSubmit(onSubmit)}> */}
 
     {/* --- Form --- */}
-        <form>
+        <form onSubmit={onSubmit}>
 
         {/* --- Username Field --- */}
             {/* --- label --- */}
@@ -42,7 +68,10 @@ export default function RegistrationForm() {
                 <input type="text"
                 name="username"
                 placeholder="username"
-                ref={ register({ required: true, minLength: 6, maxLength: 15})} />
+                ref={ register({ required: true, minLength: 6, maxLength: 15})}
+                value={user.username}
+                onChange={handleChange}
+                />
             </label>
             {/* --- end of label --- */}
 
@@ -68,7 +97,10 @@ export default function RegistrationForm() {
                 type="password"
                 placeholder="Password"
                 name="password"
-                ref={ register ({ required: true, minLength: 8})} />
+                ref={ register ({ required: true, minLength: 8})}
+                value={user.password}
+                onChange={handleChange}
+                />
 
             {/* --- errors --- */}
             {errors.password && errors.password.type === "required" && (
@@ -88,7 +120,10 @@ export default function RegistrationForm() {
                 type="text"
                 placeholder="Location"
                 name="location"
-                ref={ register ({ required: true})} />
+                ref={ register ({ required: true})} 
+                value={user.location}
+                onChange={handleChange}
+                />
 
             {/* --- errors --- */}
             {errors.location && errors.location.type === "required" && (
@@ -109,7 +144,10 @@ export default function RegistrationForm() {
                 type="email"
                 placeholder="Email"
                 name="email"
-                ref={ register ({ required: true})} />
+                ref={ register ({ required: true})}
+                value={user.email}
+                onChange={handleChange}
+                />
 
             {/* --- errors --- */}
             {errors.email && errors.email.type === "required" && (
