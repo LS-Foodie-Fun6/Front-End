@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import ReactDOM from "react-dom";
 import { useForm } from "react-hook-form";
 
+import axiosWithAuth from '../utils/axiosWithAuth';
+import axios from 'axios';
 
 //--- Styled Components ---
 
@@ -10,24 +12,24 @@ import { useForm } from "react-hook-form";
 
 
 // // --- Login Page Function ---
-export default function Login() {
+export default function Login(props) {
 // --- useForm ---
     const { register, handleSubmit, errors } = useForm();
 
 // --- onSubmit ---
-    // const onSubmit = data => {
-    //     console.log(data)
-    // --- Axios Call ---
-    //     axios()
-    //     .post ()
-    // }
-    //     .then(res => {
-    //         console.log('success', res);
-    //     })
-    //     .catch( err =>
-    //         console.log(err.response)
-    //         );
-    // --- End of onSubmit ---
+    const onSubmit = login => {
+        console.log('data')
+    //axiosWithAuth()
+    axios
+    .post('https://foodiefunsix.herokuapp.com/users/login', login)
+    //.post('/users/login', login)
+    .then(res => {
+        console.log(res.data)
+        localStorage.setItem('token', res.data.token);
+        props.history.push('/homerestaurants');
+      })
+      .catch(err => console.log(err));
+    }
     // --- End of Axios Call ---
 
     // --- Return Statement ---
@@ -37,7 +39,7 @@ export default function Login() {
             <div className="header">Login</div>
             {/* <form onSubmit={handleSubmit(onSubmit)}> */}
     {/* --- Form --- */}
-        <form>
+        <form onSubmit={onSubmit}>
         {/* --- Username Field --- */}
             {/* --- label --- */}
             <label htmlFor="username">
@@ -46,7 +48,7 @@ export default function Login() {
                 <input type="text"
                 name="username"
                 placeholder="username"
-                ref={ register({ required: true, minLength: 6, maxLength: 15})} />
+                ref={ register({ required: true, minLength: 5, maxLength: 15})} />
             </label>
 
             {/* --- errors --- */}
@@ -70,14 +72,14 @@ export default function Login() {
                 type="password"
                 placeholder="Password"
                 name="password"
-                ref={ register ({ required: true, minLength: 8})} />
+                ref={ register ({ required: true, minLength: 3})} />
             
             {/* --- errors --- */}
             {errors.password && errors.password.type === "required" && (
                 <span>Password is required</span>
                 )}
             {errors.password && errors.password.type === "minLength" && (
-                <span> Password is too short - 8 characters</span>
+                <span> Password is too short - 3 characters</span>
                 )}
         {/* --- End of Password Field --- */}
 
