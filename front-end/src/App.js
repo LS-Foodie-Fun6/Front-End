@@ -14,8 +14,9 @@ function App() {
   return (
     <div className="App">
       {/* <Link to='/'>Home</Link> */}
+      <Route exact path="/" component ={Login} />
+      {/* <Route exact path="/login" component ={Login} /> */}
       
-      <Route exact path="/login" component ={Login} />
       <Route exact path="/register" component ={Register} />
       <PrivateRoute exact path='/homerestaurants' component={HomeRestaurants}/>
      
