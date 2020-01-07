@@ -1,29 +1,24 @@
 import React from 'react';
 import ReactDOM from "react-dom";
+import {Route, Link} from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import logo from './logo.svg';
 import './App.css';
-import login from './components/login';
+import Login from './components/login';
 import Register from './components/register';
 
+import PrivateRoute from './utils/privateRoute';
+import HomeRestaurants from './components/homeRestaurants';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <Link to='/'>Home</Link> */}
+      
+      <Route exact path="/login" component ={Login} />
+      <Route exact path="/register" component ={Register} />
+      <PrivateRoute exact path='/homerestaurants' component={HomeRestaurants}/>
+     
     </div>
   );
 }

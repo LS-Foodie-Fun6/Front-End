@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 
+import registerUser from '../actions/userActions';
+
 //--- Styled Components ---
 // const RegBG = styled.div`
 // `;
