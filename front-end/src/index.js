@@ -12,12 +12,14 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 //IMPORT REDUCERS
 import {userReducer} from './reducers/userReducer';
+import {restaurantReducer} from './reducers/restaurantReducer';
+import rootReducer from './reducers';
 
 //COMPOSE ENHANCER
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 // STORE
-const store = createStore(userReducer, composeEnhancers(applyMiddleware(thunk)));
+const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)));
 
 
 

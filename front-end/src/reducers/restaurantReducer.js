@@ -24,6 +24,7 @@ import {
     switch (action.type) {
 
         case FETCH_RESTAURANT: 
+        console.log('FETCH_RESTAURANT')
             return {
                 ...state,
                 loading: true, 
@@ -31,9 +32,10 @@ import {
             };
 
         case FETCH_RESTAURANT_SUCCESS: 
+        console.log('FETCH_RESTAURANT SUCCESS')
             return {
                 ...state,
-                rest: action.payload,
+                restaurant: action.payload,
                 loading: false, 
                 error: ''
             };
@@ -66,7 +68,8 @@ import {
             case DELETE_RESTAURANT: 
             return {
                 ...state,
-                restaurant: action.payload,
+                restaurant:state.restaurants.filter(restrant => restrant.id !== action.payload),
+                //restaurant: action.payload,
                 loading: false, 
                 error: ''
             };
@@ -76,6 +79,8 @@ import {
                 ...state,
                 error: action.payload,
                 loading: false
-            }  
+            } 
+            default:
+            return state; 
         }
     }
