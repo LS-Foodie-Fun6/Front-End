@@ -21,13 +21,25 @@ export const DELETE_RESTAURANT_FAIL = "DELETE_RESTAURANT_FAIL"
 ///////// CREATE A RESTAURANT
 
 export const createRestaurant = (Restaurant) => dispatch => {
+    dispatch({type: FETCH_RESTAURANT});
+    console.log(Restaurant)
     axiosWithAuth()
     .post('/restaurants/add', Restaurant)
     .then(res => {
-        localStorage.setItem('token', res.data);
+        console.log(res.data, 'dataaa')
+        dispatch({
+            type: FETCH_RESTAURANT_SUCCESS,
+            //payload: res.data
+        });
+        // localStorage.setItem('token', res.data);
         //props.history.push('/');
       })
-      .catch(err => console.log(err));
+      .catch(error => {
+        console.log(error);
+        dispatch({
+            type: FETCH_RESTAURANT_FAIL,
+            });
+        });
 }
 
 
@@ -35,27 +47,25 @@ export const createRestaurant = (Restaurant) => dispatch => {
 //////////////// FETCH RESTAURANT /////////////////////////////
 ////////////////////////////////////////////////////////
 
-export const fetchRestaurant = id => dispatch => {
-    dispatch({type: FETCH_RESTAURANT});
-    axiosWithAuth()
-        // NEED id? -> .get(`/restaurants/${id}`)
-        .get(`/restaurants`)
-        .then(response => {
-        dispatch({
-            type: FETCH_RESTAURANT_SUCCESS,
-            payload: response.data
-        });
-        })
+// export const fetchRestaurant = id => dispatch => {
+//     dispatch({type: FETCH_RESTAURANT});
+//     axiosWithAuth()
+//         // NEED id? -> .get(`/restaurants/${id}`)
+//         .get(`/restaurants`)
+//         .then(response => {
+//         dispatch({
+//             type: FETCH_RESTAURANT_SUCCESS,
+//             payload: response.data
+//         });
+//         })
 
-        .catch(error => {
-        console.log(error);
-        dispatch({
-            type: FETCH_RESTAURANT_FAIL,
-            payload: error.response
-            
-            });
-        });
-    };
+//         .catch(error => {
+//         console.log(error);
+//         dispatch({
+//             type: FETCH_RESTAURANT_FAIL,           
+//             });
+//         });
+//     };
 
 ////////////////////////////////////////////////////////
 //////////////// EDIT RESTAURANT /////////////////////////////
@@ -68,14 +78,12 @@ console.log(user, 'RESTAURANT DATA')
         .then(response => {
         dispatch({
             type: UPDATE_RESTAURANT, 
-            payload: response.data
         });
     })
         .catch(error => {
         console.log(error);
         dispatch({
         type: UPDATE_RESTAURANT_FAIL,
-        payload: error.response
         });
     });
     };
@@ -93,14 +101,12 @@ export const deleteRestaurant = id => dispatch => {
               
         dispatch({
             type: DELETE_RESTAURANT, 
-            payload: response.data
         });
         })
         .catch(error => {
         console.log(error);
         dispatch({
         type: DELETE_RESTAURANT_FAIL,
-        payload: error.response
         });
     });
 }

@@ -35,9 +35,9 @@ export default function Login(props) {
     const onSubmit = e => {
         e.preventDefault();
         console.log(register)
-    //axiosWithAuth()
-    axios
-    .post('https://foodiefunsix.herokuapp.com/users/login', user)
+    axiosWithAuth()
+    //axios
+    .post('/users/login', user)
     //.post('/users/login', login)
     .then(res => {
         console.log(res.data)
