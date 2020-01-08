@@ -8,6 +8,7 @@ import axios from 'axios';
 
 //--- Styled Components ---
 // const RegBG = styled.div`
+
 // `;
 
 //-------------------------
@@ -20,12 +21,12 @@ export default function RegistrationForm(props) {
 
 
   ///////////////////////////////////
-  const [user,setUser] = useState({   
+const [user,setUser] = useState({   
     username: '',
     password: '',
     location: '',
     email: '',
- });
+});
 
 const handleChange = e => {
     setUser({
@@ -46,8 +47,8 @@ axios
     console.log(res.data)
     // localStorage.setItem('token', res.data.token);
     props.history.push('/');
-  })
-  .catch(err => console.log(err));
+})
+.catch(err => console.log(err));
 }
 
     // --- Return Statement ---

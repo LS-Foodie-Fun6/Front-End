@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import {Route, Link} from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import logo from './logo.svg';
+import NavBar from './components/navbar';
 import './App.css';
 import Login from './components/login';
 import Register from './components/register';
@@ -13,13 +14,13 @@ import HomeRestaurants from './components/homeRestaurants';
 function App() {
   return (
     <div className="App">
+      <NavBar/>
       {/* <Link to='/'>Home</Link> */}
       <Route exact path="/" component ={Login} />
       {/* <Route exact path="/login" component ={Login} /> */}
       
       <Route exact path="/register" component ={Register} />
       <PrivateRoute exact path='/homerestaurants' component={HomeRestaurants}/>
-     
     </div>
   );
 }
