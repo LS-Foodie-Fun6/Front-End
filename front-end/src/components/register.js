@@ -7,9 +7,87 @@ import registerUser from '../actions/userActions';
 import axios from 'axios';
 
 //--- Styled Components ---
-// const RegBG = styled.div`
+const EntirePage = styled.div`
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
 
-// `;
+    const RegBG = styled.div`
+        background-color: #bdd358;
+        margin: 2rem;
+        height: 60vh;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 40rem;
+        border-radius: 1rem;
+    `;
+
+            const LoginTitle = styled.div`
+                display: flex;
+                padding: 1.75rem;
+                //box-shadow: 2px 5px 6px #5c6924;
+                border-radius: 1rem;
+                justify-content: center;
+                font-size: 3rem;
+                font-weight:bold;
+                color: white;
+                background-color: #e5625e;
+                //margin: 2rem;
+            `;
+
+            const Label = styled.label`
+                color: white;
+                font-weight:bold;
+                display:flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+            `;
+
+            const Input = styled.input`
+                padding: 0.5em;
+                margin: 0.5em 0;
+                color: #e5625e
+                background: white;
+                font-size: 1 rem;
+                border: none;
+                border-radius: 3px;
+                justify-content:center;
+                align-items: center;
+            `;
+
+            const Button = styled.button`
+            background-color: #e5625e;
+            border: none;
+            color: white;
+            font-size: 1rem;
+            display:flex;
+            align-items:center;
+            margin: .5rem 0;
+            padding: .5rem;
+            text-decoration: none;
+            border-radius:1rem;
+            width: 100px;
+            justify-content: center;
+            `;
+            
+            const RegBtn = styled.button`
+            background-color: #a63a37;
+            border: none;
+            color: white;
+            font-size: 1rem;
+            display:flex;
+            align-items:center;
+            margin: .5rem 0;
+            padding: .5rem;
+            border-radius:1rem;
+            justify-content: center;
+            width: 100px;
+            text-decoration: none;
+            `;
 
 //-------------------------
 
@@ -54,7 +132,8 @@ axios
     // --- Return Statement ---
     return (
     // --- Div container ---
-        <div className="registration-container">
+        <EntirePage>
+            <RegBG>
             <div className="header">Register</div>
             {/* <form onSubmit={handleSubmit(onSubmit)}> */}
 
@@ -158,8 +237,8 @@ axios
 
     {/* --- End of Form --- */}
         </form>
-
+        </RegBG>
     {/* --- End of Login container --- */}
-            </div>
+            </EntirePage>
     )
 }

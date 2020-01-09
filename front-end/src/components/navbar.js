@@ -6,12 +6,13 @@ import styled from 'styled-components';
 import Menu from './navmenu';
 
 
+
 const NavBarStyle = styled.div`
-height: 10vh;
-background-color: white;
+height: 20vh;
+background-color: #e5625e;
 color: white;
 display: flex;
-justify-content: center;
+justify-content: space-around;
 align-items: center;
 text-decoration: none;
 `;
@@ -22,6 +23,7 @@ export default function NavBar() {
     return (
         <div>
             <NavBarStyle>
+                <h1>FoodieFun</h1>
                 <Menu/>
             </NavBarStyle>
 

@@ -3,18 +3,18 @@ import styled from 'styled-components';
 import ReactDOM from "react-dom";
 import { useForm } from "react-hook-form";
 import {Link} from 'react-router-dom';
-
+import img from '../images/loginbgphoto.jpg'
 import axiosWithAuth from '../utils/axiosWithAuth';
-import axios from 'axios';
+import buttons from '../components/navcss.css';
+
 
 //--- Styled Components ---
 
 const EntirePage = styled.div`
-background-color: #e5625e;
-height: 100vh;
-display: flex;
-justify-content: center;
-align-items: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `;
 
     const LoginBG = styled.div`
@@ -23,24 +23,22 @@ align-items: center;
         height: 60vh;
         display: flex;
         align-items: center;
-        justify-content: center;
-        //flex-wrap:wrap;
-        //flex-direction: column;
-        box-shadow: 2px 6px 20px #6e2724;
+        justify-content: space-around;
         width: 40rem;
+        border-radius: 1rem;
     `;
 
             const LoginTitle = styled.div`
                 display: flex;
-                padding: .5rem;
-                box-shadow: 2px 5px 6px #5c6924;
+                padding: 1.75rem;
+                //box-shadow: 2px 5px 6px #5c6924;
                 border-radius: 1rem;
                 justify-content: center;
                 font-size: 3rem;
                 font-weight:bold;
                 color: white;
                 background-color: #e5625e;
-                margin: 2rem;
+                //margin: 2rem;
             `;
 
             const Label = styled.label`
@@ -53,16 +51,45 @@ align-items: center;
             `;
 
             const Input = styled.input`
-                padding: 0.75em;
-                margin: 0.75em;
+                padding: 0.5em;
+                margin: 0.5em 0;
                 color: #e5625e
                 background: white;
+                font-size: 1 rem;
                 border: none;
                 border-radius: 3px;
-                // display:flex;
-                // flex-direction: row;
-                // align-items: center;
-                //justify-content: center;
+                justify-content:center;
+                align-items: center;
+            `;
+
+            const Button = styled.button`
+            background-color: #e5625e;
+            border: none;
+            color: white;
+            font-size: 1rem;
+            display:flex;
+            align-items:center;
+            margin: .5rem 0;
+            padding: .5rem;
+            text-decoration: none;
+            border-radius:1rem;
+            width: 100px;
+            justify-content: center;
+            `;
+            
+            const RegBtn = styled.button`
+            background-color: #a63a37;
+            border: none;
+            color: white;
+            font-size: 1rem;
+            display:flex;
+            align-items:center;
+            margin: .5rem 0;
+            padding: .5rem;
+            border-radius:1rem;
+            justify-content: center;
+            width: 100px;
+            text-decoration: none;
             `;
 
 //-------------------------
@@ -107,7 +134,7 @@ export default function Login(props) {
     // --- Return Statement ---
     return (
     // --- Div container ---
-    <EntirePage>
+    <EntirePage styles={{ backgroundImage:`url(${img})` }}>
         <LoginBG>
             <LoginTitle>Login</LoginTitle>
             {/* <form onSubmit={handleSubmit(onSubmit)}> */}
@@ -167,10 +194,10 @@ export default function Login(props) {
         {/* --- End of Password Field --- */}
 
         {/* --- Submit Button --- */}
-                <button className="button">Let's Eat!</button>
+                <Button>Let's Eat!</Button>
         {/*  --- End of Submit Button --- */}
 
-                <button className="button"> <Link to={'/register'}>Register</Link></button>
+                <RegBtn> <Link className='buttons' to={'/register'}>Register</Link></RegBtn>
 
         {/* --- End of Form --- */}
             </form>
