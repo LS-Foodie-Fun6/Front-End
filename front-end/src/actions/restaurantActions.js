@@ -47,35 +47,45 @@ export const createRestaurant = (Restaurant) => dispatch => {
 //////////////// FETCH RESTAURANT /////////////////////////////
 ////////////////////////////////////////////////////////
 
-// export const fetchRestaurant = id => dispatch => {
-//     dispatch({type: FETCH_RESTAURANT});
-//     axiosWithAuth()
-//         // NEED id? -> .get(`/restaurants/${id}`)
-//         .get(`/restaurants`)
-//         .then(response => {
-//         dispatch({
-//             type: FETCH_RESTAURANT_SUCCESS,
-//             payload: response.data
-//         });
-//         })
+export const fetchRestaurant = id => dispatch => {
+    dispatch({type: FETCH_RESTAURANT});
+    axiosWithAuth()
+        // NEED id? -> .get(`/restaurants/${id}`)
+        .get(`/restaurants`)
+        .then(response => {
+        dispatch({
+            type: FETCH_RESTAURANT_SUCCESS,
+            payload: response.data
+        });
+        })
 
-//         .catch(error => {
-//         console.log(error);
-//         dispatch({
-//             type: FETCH_RESTAURANT_FAIL,           
-//             });
-//         });
-//     };
+        .catch(error => {
+        console.log(error);
+        dispatch({
+            type: FETCH_RESTAURANT_FAIL,           
+            });
+        });
+    };
 
 ////////////////////////////////////////////////////////
 //////////////// EDIT RESTAURANT /////////////////////////////
 ////////////////////////////////////////////////////////
 
-export const editRestaurant = (user, id) => dispatch => {
+export const editRestaurant = (id, user ) => dispatch => {
+    // const payload = {
+    //     name: user.name,
+    //     cuisine: user.cuisine,
+    //     location: user.location,
+    //     opens: user.opens,
+    //     closes: user.closes,
+    //     rating: user.rating,
+    //       //photos: null
+    // }
 console.log(user, 'RESTAURANT DATA')
     axiosWithAuth()
         .put(`/restaurants/${id}`, user)
-        .then(response => {
+        .then(res => {
+            console.log(res.data)
         dispatch({
             type: UPDATE_RESTAURANT, 
         });

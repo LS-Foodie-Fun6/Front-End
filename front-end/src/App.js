@@ -13,7 +13,7 @@ import HomeRestaurants from './components/homeRestaurants';
 import addRestaurant from './components/addRestaurant';
 import restaurantCard from './components/restaurantCard';
 import addReview from './components/addReview';
-
+import EditRestaurant from './components/editRestaurant';
 
 function App() {
   return (
@@ -26,8 +26,10 @@ function App() {
       <Route exact path="/register" component ={Register} />
       <PrivateRoute exact path='/homerestaurants' component={HomeRestaurants}/>
       <Route exact path="/addrestaurant" component ={addRestaurant} />
+      <Route exact path="/editrestaurant/:id" render ={(props) =>  <EditRestaurant {...props}/>} />
       <Route exact path="/restaurantcard" component ={restaurantCard} />
       <Route exact path="/review" component ={addReview} />
+
     </div>
   );
 }
