@@ -18,7 +18,7 @@ export default function Menu() {
         <ManuBar>
             <p>Hello</p>
             <NavLink to='/'> Home </NavLink>
-            <NavLink to='/'> Profile </NavLink>
+            <NavLink to='/homerestaurants'> Profile </NavLink>
             <NavLink to='/'> Favorites </NavLink>
             {/* <NavLink onClick={props.onClick} className='navLinkStyle' to="/" >DASHBOARD</NavLink>
             <NavLink onClick={props.onClick} className='navLinkStyle' to="/profile">PROFILE</NavLink>

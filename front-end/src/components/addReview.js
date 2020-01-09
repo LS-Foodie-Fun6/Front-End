@@ -34,7 +34,7 @@ const AddReview = (props) => {
 return (
 
     <div>
-          <h1>Add a Food Review</h1>
+          <h1>Add a Review</h1>
         <form onSubmit={handleSubmit}>
             <input
                 type="text"
@@ -76,6 +76,9 @@ return (
             />
 
         </form>
+
+        <button className="button">Add Review</button>
+        {/* <button><Link to={'/homerestaurants'}>Home Restaurants</Link></button> */}
     </div>
     )
  
