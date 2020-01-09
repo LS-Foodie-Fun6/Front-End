@@ -34,7 +34,7 @@ const EntirePage = styled.div`
                 font-size: 3rem;
                 font-weight:bold;
                 color: white;
-                background-color: #e5625e;
+                background-color: #a63a37;
                 //margin: 2rem;
             `;
 

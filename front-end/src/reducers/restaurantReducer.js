@@ -13,6 +13,7 @@ import {
   
   const initialState = {
     restaurant: {},
+    restaurants: [],
     //NEED? -> name, cuisine, location, opens, closes, rating, photos
     loading: false,
     restaurantDeleted: false,
@@ -50,7 +51,13 @@ import {
         case UPDATE_RESTAURANT:
             return {
                 ...state,
-                restaurant: action.payload,
+                restaurant: state.restaurants.map(restrant => {
+                        if (restrant.id === action.payload.id) {
+                          return action.payload
+                        }else {
+                          return restrant;
+                        }
+                    }),
                 loading: false, 
             }
 
@@ -68,7 +75,7 @@ import {
             case DELETE_RESTAURANT: 
             return {
                 ...state,
-                restaurant:state.restaurants.filter(restrant => restrant.id !== action.payload),
+                restaurant: state.restaurants.filter(restrant => restrant.id !== action.payload),
                 //restaurant: action.payload,
                 loading: false, 
                 error: ''
