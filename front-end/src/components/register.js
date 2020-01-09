@@ -25,7 +25,7 @@ const EntirePage = styled.div`
         border-radius: 1rem;
     `;
 
-            const LoginTitle = styled.div`
+            const RegTitle = styled.div`
                 display: flex;
                 padding: 1.75rem;
                 //box-shadow: 2px 5px 6px #5c6924;
@@ -134,7 +134,7 @@ axios
     // --- Div container ---
         <EntirePage>
             <RegBG>
-            <div className="header">Register</div>
+            <RegTitle>Register</RegTitle>
             {/* <form onSubmit={handleSubmit(onSubmit)}> */}
 
     {/* --- Form --- */}
@@ -142,17 +142,17 @@ axios
 
         {/* --- Username Field --- */}
             {/* --- label --- */}
-            <label htmlFor="username">
+            <Label htmlFor="username">
                 {/* <span> Do you already have an account? <Link tag={Link} to="/login"> Sign in </Link></span> */}
                 Username: 
-                <input type="text"
+                </Label>
+                <Input type="text"
                 name="username"
                 placeholder="username"
                 ref={ register({ required: true, minLength: 6, maxLength: 15})}
                 value={user.username}
                 onChange={handleChange}
                 />
-            </label>
             {/* --- end of label --- */}
 
             {/* --- errors --- */}
@@ -170,10 +170,10 @@ axios
 
         {/* --- Password Field --- */}
             {/* --- label --- */}
-            <label htmlFor="password">
+            <Label htmlFor="password">
                 Password: 
-            </label>
-            <input
+            </Label>
+            <Input
                 type="password"
                 placeholder="Password"
                 name="password"
@@ -193,10 +193,10 @@ axios
 
         {/* --- Location Field --- */}
             {/* --- label --- */}
-            <label htmlFor="location">
+            <Label htmlFor="location">
                 Location: 
-            </label>
-            <input
+            </Label>
+            <Input
                 type="text"
                 placeholder="Location"
                 name="location"
@@ -211,16 +211,12 @@ axios
                 )}
         {/* --- End of Location Field --- */}
 
-        {/* --- Submit Button --- */}
-                <button className="button">Let's Eat!</button>
-        {/*  --- End of Submit Button --- */}
-
         {/* --- Email Field --- */}
             {/* --- label --- */}
-            <label htmlFor="email">
+            <Label htmlFor="email">
                 Email: 
-            </label>
-            <input
+            </Label>
+            <Input
                 type="email"
                 placeholder="Email"
                 name="email"
@@ -234,6 +230,10 @@ axios
                 <span>Email is required</span>
                 )}
         {/* --- End of Email Field --- */}
+                
+            {/* --- Submit Button --- */}
+                    <Button className="button">Let's Eat!</Button>
+            {/*  --- End of Submit Button --- */}
 
     {/* --- End of Form --- */}
         </form>
