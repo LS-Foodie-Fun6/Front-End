@@ -119,13 +119,16 @@ const AddRestaurant = (props) => {
           /> */}
 
         
-          {/* <button><Link to={'/homerestaurants'}>Add Restaurant</Link></button> */}
-          <button>Add Restaurant</button>
+          {/* <button><Link to={'/homerestaurants'}>Home Restaurants</Link></button> */}
+          <button className="button">Add Restaurant</button>
           <button onClick={handleUpdate}>Edit Restaurant</button>
           <button onClick={handleDelete}>Delete Restaurant</button>
         </form>
 
         <div>
+        {/* IS THIS NOT WORKING  B/C I DONT HAVE ANY RESTAURANTS YET TO MAP OVER?? */}
+          <h1>Upon fill out:</h1> 
+            <h2>1. create a - RestaurantCard</h2> 
         {/* {restrant.map(restar => {
           return <RestaurantCard key={restar.id} restar1={restar}/>
         })} */}
