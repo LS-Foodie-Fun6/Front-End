@@ -4,20 +4,17 @@ import styled from 'styled-components';
 //import BUTTONS? - BEN AND JUSTIN
 //import SEARCHBAR? - MVP?
 import Menu from './navmenu';
-const NavBarStyle = styled.div
-    `
-position: fixed;
-top: 0px;
-margin: .01rem;
-width: 100vw;
-z-index: 5;
-min-height: 3rem;
+
+
+const NavBarStyle = styled.div`
+height: 10vh;
+background-color: white;
+color: white;
 display: flex;
+justify-content: center;
 align-items: center;
-justify-content: space-between;
-background-color: #FAACA8;
-background: linear-gradient(90deg, rgba(61,96,152,1) 0%, rgba(0,212,255,1) 100%);
-`
+text-decoration: none;
+`;
 
 
 export default function NavBar() {

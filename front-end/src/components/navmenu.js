@@ -4,18 +4,13 @@ import { NavLink } from 'react-router-dom';
 
 const ManuBar = styled.div
     `
-    // height: 10rem;
-    // width: 30vw;
-    // background-color: #ffc1c1;
-    // display: none;
-    // flex-direction: column;
-    // align-items: center;
-    // justify-content: space-around;
-    // position:fixed;
-    // top:30;
-    // left:0;
-`
+color: blue;
+text-decoration: none;
+`;
 
+    // const NavLink =styled.NavLink`
+
+    // `;
 
 export default function Menu() {
 

@@ -77,5 +77,7 @@ import {
                 error: action.payload,
                 loading: false
             }  
+            default:
+            return state;
         }
     }

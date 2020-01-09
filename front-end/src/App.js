@@ -10,6 +10,8 @@ import Register from './components/register';
 
 import PrivateRoute from './utils/privateRoute';
 import HomeRestaurants from './components/homeRestaurants';
+import addRestaurant from './components/addRestaurant';
+
 
 function App() {
   return (
@@ -21,6 +23,7 @@ function App() {
       
       <Route exact path="/register" component ={Register} />
       <PrivateRoute exact path='/homerestaurants' component={HomeRestaurants}/>
+      <Route exact path="/addrestaurant" component ={addRestaurant} />
     </div>
   );
 }
