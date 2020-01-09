@@ -21,13 +21,24 @@ export const DELETE_REVIEW_FAIL = "DELETE_REVIEW_FAIL"
 ///////// CREATE A REVIEW 
 
 export const createReview = (review) => dispatch => {
+    dispatch({type: FETCH_REVIEW});
     axiosWithAuth()
-    .post('...', review)
-    .then(res => {
-        localStorage.setItem('token', res.data);
-        //props.history.push('/');
-      })
-      .catch(err => console.log(err));
+    .post('/users/add', review)
+    .then(response => {
+        dispatch({
+            type: FETCH_REVIEW_SUCCESS,
+            payload: response.data
+        });
+        })
+
+        .catch(error => {
+        console.log(error);
+        dispatch({
+            type: FETCH_REVIEW_FAIL,
+            payload: error.response
+            
+            });
+        });
 }
 
 
@@ -39,7 +50,7 @@ export const createReview = (review) => dispatch => {
 export const fetchReview = id => dispatch => {
     dispatch({type: FETCH_REVIEW});
     axiosWithAuth()
-        .get(`.../${id}`)
+        .get(`/users/${id}`)
         .then(response => {
         dispatch({
             type: FETCH_REVIEW_SUCCESS,
@@ -64,7 +75,7 @@ export const fetchReview = id => dispatch => {
 export const editReview = (user, id) => dispatch => {
 console.log(user, 'REVIEW DATA')
     axiosWithAuth()
-        .put(`.../${id}`, user)
+        .put(`/users/${id}`, user)
         .then(response => {
         dispatch({
             type: UPDATE_REVIEW, 
@@ -86,7 +97,7 @@ console.log(user, 'REVIEW DATA')
 
 export const deleteReview = id => dispatch => {
     return axiosWithAuth()
-        .delete(`.../${id}`)
+        .delete(`/users/${id}`)
         .then(response => {
             console.log(response)
             localStorage.removeItem('token');

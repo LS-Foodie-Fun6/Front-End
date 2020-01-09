@@ -11,6 +11,10 @@ import RestaurantCard from './restaurantCard';
 
 const AddRestaurant = (props) => {
       console.log(props)
+
+
+       
+
      const [restrant, setRestrant] = useState({
         
       name: '',
@@ -31,12 +35,12 @@ const AddRestaurant = (props) => {
     }
       
     
-    const handleDelete = resta => {
-        (deleteRestaurant(restrant.id))
+    const handleDelete = e => {
+        props.deleteRestaurant(e.target.id)
     }
 
-    const handleUpdate = resta => {
-        (editRestaurant(restrant.id))
+    const handleUpdate = (e, _changes) => {
+        props.editRestaurant(e.target.id, _changes)
     }
 
 
@@ -121,7 +125,7 @@ const AddRestaurant = (props) => {
         
           {/* <button><Link to={'/homerestaurants'}>Home Restaurants</Link></button> */}
           <button className="button">Add Restaurant</button>
-          <button onClick={handleUpdate}>Edit Restaurant</button>
+          <button onClick={(e) => handleUpdate(e,restrant)}>Edit Restaurant</button>
           <button onClick={handleDelete}>Delete Restaurant</button>
         </form>
 
@@ -129,9 +133,25 @@ const AddRestaurant = (props) => {
         {/* IS THIS NOT WORKING  B/C I DONT HAVE ANY RESTAURANTS YET TO MAP OVER?? */}
           <h1>Upon fill out:</h1> 
             <h2>1. create a - RestaurantCard</h2> 
+
+          
         {/* {restrant.map(restar => {
           return <RestaurantCard key={restar.id} restar1={restar}/>
         })} */}
+
+
+      {/* {restaurants2.map(restar => {
+        return<div className="restCard">
+              <h3>NAME: {restar.name}</h3>
+              <h3>CUISINE: {restar.cuisine}</h3>
+              <h3>LOCATION: {restar.location}</h3>
+              <h3>OPENS: {restar.opens}</h3>
+              <h3>CLOSES: {restar.closes}</h3>
+              <h3>RATING: {restar.rating}</h3>
+              </div>
+        })}  */}
+
+
         </div>
 
       
