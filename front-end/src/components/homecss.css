@@ -1,0 +1,24 @@
+@white: #ffffff;
+@gray: #999799;
+@red: #e5625e;
+@green: #bdd358;
+@yellow: #e5e059;
+
+
+
+.header{
+    color: white;
+    font-size: 2.2rem;
+    /* background-color: #bdd358; */
+    /* display:flex; */
+    /* justify-content:center; */
+    //height: 20vh;
+    /* align-items:center; */
+};
+
+.res-link {
+    text-decoration:none;
+    /* color: white; */
+    /* background-color: white; */
+    
+};
