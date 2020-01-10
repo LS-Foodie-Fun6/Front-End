@@ -44,10 +44,10 @@ const HomeRestaurants = ({editRestaurant, deleteRestaurant, restar, history}) =>
     .get('/restaurants')
     .then(res => {
         
-        const info = res.data.filter(p =>
-        p.id.toLowerCase().includes(query.toLowerCase()),
-        setRestaurant(info))
-        // setRestaurant(res.data)
+        // const info = res.data.filter(p =>
+        // p.id.toLowerCase().includes(query.toLowerCase()),
+        // setRestaurant(info))
+        setRestaurant(res.data)
         console.log(res.data, 'restaurant list')
     })
     .catch(err => {
