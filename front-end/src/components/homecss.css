@@ -58,3 +58,16 @@ border-radius: 1rem;
     margin: .5rem;
     border-radius: .5rem;
 }
+
+.add-card-link {
+    text-decoration:none;
+    color: white;
+    background-color: #e5625e;
+    padding: .75rem;
+    margin: .5rem;
+    border-radius: .75rem;
+    /* font-size:1rem; */
+    font-weight:bold;
+    border:none;
+    width: 20%;
+}

@@ -26,12 +26,12 @@ const [review,setReview] = useState([]);
     {review.map(r => {
     return (
         <div>
-            <h2>CUISINE:</h2> <h3>{r.cuisine}</h3>
-            <h2>ITEM NAME:</h2><h3>{r.menuItemName}</h3>
-            <h2>LOCATION:</h2><h3>{r.location}</h3>
-            <h2>PRICE:</h2><h3>{r.price}</h3>
-            <h2>RATING:</h2><h3>{r.rating}</h3>
-            <h2>REVIEW:</h2><h3>{r.review}</h3>
+            <h2>Cuisine:</h2> <h3>{r.cuisine}</h3>
+            <h2>Item Name:</h2><h3>{r.menuItemName}</h3>
+            <h2>Location:</h2><h3>{r.location}</h3>
+            <h2>Price:</h2><h3>{r.price}</h3>
+            <h2>Rating:</h2><h3>{r.rating}</h3>
+            <h2>Review:</h2><h3>{r.review}</h3>
         </div>
 )
 })}

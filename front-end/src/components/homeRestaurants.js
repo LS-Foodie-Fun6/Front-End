@@ -35,6 +35,11 @@ justify-content: center;
 // display: flex;
 `;
 
+const Buttons = styled.div`
+align-items: center;
+justify-content:center;
+`;
+
 
 const HomeRestaurants = ({editRestaurant, deleteRestaurant, restar, history}) => {
 
@@ -66,7 +71,7 @@ const HomeRestaurants = ({editRestaurant, deleteRestaurant, restar, history}) =>
         setTimeout(()=> {history.push('/homerestaurants')} , 1000)
     }
 
-    const handleUpdate = (e ) => {
+    const handleUpdate = (e) => {
         //editRestaurant(e.target.id, )
     }
 // 1. edit form - restaurant data
@@ -106,14 +111,15 @@ const handleInputChange = event => {
                 <h5>Cuisine: {r.cuisine}</h5>
                 <h5>Location: {r.location}</h5>
                 <h5>Hours: {r.opens}am - {r.closes}pm</h5>
-                <h5>Rating: {r.rating}</h5>
+                <h5>Rating: {r.rating} / 5</h5>
 
-    
-                <Link className="card-link" to={`/editrestaurant/${r.id}`}>Edit</Link>
-                <button className="card-button" onClick={() => handleDelete(r.id)}>Delete</button>
-                <Link className="card-link" to={'/addreview'}>Add Review</Link>
-                <Link className="home-link" to={'/review'}>View Review</Link>
-                
+                <Buttons>
+                <Link className="card-link" to={`/editrestaurant/${r.id}`}><button className="add-card-link">Edit  Post</button></Link>
+                <button className="card-button" onClick={() => handleDelete(r.id)}>Delete Post</button>
+                <Link to={'/addreview'}><button className="add-card-link">Add Review</button></Link>
+                <Link className="home-link" to={'/review'}><button className="add-card-link">View Review</button></Link>
+                </Buttons>
+
             </Card>
             )
         })}
