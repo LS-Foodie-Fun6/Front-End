@@ -57,14 +57,16 @@ const HomeRestaurants = ({editRestaurant, deleteRestaurant, restar, history}) =>
             
         {restaurant.map(r => {
             return (
-            <div>
-                <h2>NAME:</h2> <h3>{r.name}</h3>
-                <h2>CUISINE:</h2><h3>{r.cuisine}</h3>
-                <h2>LOCATION:</h2><h3>{r.location}</h3>
+            <div className="card-section">    
+                <div className="rest-card">
+                    <h3>Name: {r.name}</h3>
+                    <h3>Cuisine:{r.cuisine}</h3>
+                    <h3>Location: {r.location}</h3>
 
-                <button className="button"><Link to={`/editrestaurant/${r.id}`}>Edit Rest</Link></button>
-                {/* <button onClick={(e) => handleUpdate(e,restar)}>Edit Restaurant</button> */}
-                <button onClick={() => handleDelete(r.id)}>Delete Restaurant</button>
+                    <Link className="card-button" to={`/editrestaurant/${r.id}`}>Edit</Link>
+                    {/* <button onClick={(e) => handleUpdate(e,restar)}>Edit Restaurant</button> */}
+                    <button className="card-button" onClick={() => handleDelete(r.id)}>Delete</button>
+                </div>
             </div>
             )
         })}
@@ -78,7 +80,7 @@ const mapStatetoProps = state => {
     return {
         restrantOnProps: state.restaurantReducer
     }
-  }
+}
 
 export default connect(
   mapStatetoProps,

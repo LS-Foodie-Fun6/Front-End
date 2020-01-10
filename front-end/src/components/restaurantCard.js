@@ -12,15 +12,14 @@ const RestaurantCard = ({editRestaurant,restar}) => {
 
     return (
         <div>
-        <div className="card">
-            <h1>RESTAURANT CARD</h1>
+        <div className="card-header">
+            <h1>Restaurants</h1>
         {/* <h3>{restar.name}</h3>
         <h3>{restar.cuisine}</h3>
         <h3>{restar.location}</h3>
         <h3>{restar.opens}</h3>
         <h3>{restar.closes}</h3>
         <h3>{restar.rating}</h3> */}
- 
         
             {/* <div>
                 <h2>NAME: El Serape</h2>
@@ -31,9 +30,9 @@ const RestaurantCard = ({editRestaurant,restar}) => {
                 <h2>RATING: 4</h2>
            </div> */}
     
-
-        <button className="button"><Link to={'/review'}>Add Review</Link></button>
-        <button onClick={(e) => handleUpdate(e,restar)}>Edit Restaurant</button>
+{/* 
+        <button className="card-button"><Link to={'/review'}>Add Review</Link></button>
+        <button className="card-button" onClick={(e) => handleUpdate(e,restar)}>Edit Restaurant</button> */}
      {/* <button><Link to={'/homerestaurants'}>Home Restaurants</Link></button> */}
 
     </div>

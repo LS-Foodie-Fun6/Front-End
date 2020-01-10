@@ -146,11 +146,6 @@ const AddRestaurant = (props) => {
           {/* <h1>Upon fill out:</h1> 
             <h2>1. create a - RestaurantCard</h2>  */}
 
-          
-        {/* {restrant.map(restar => {
-          return <RestaurantCard key={restar.id} restar1={restar}/>
-        })} */}
-
 
       {/* {restaurants2.map(restar => {
         return<div className="restCard">
