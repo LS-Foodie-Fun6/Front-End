@@ -137,8 +137,7 @@ const AddRestaurant = (props) => {
         
           {/* <button><Link to={'/homerestaurants'}>Home Restaurants</Link></button> */}
           <button className="add-button">Add Restaurant</button>
-          {/* <button onClick={(e) => handleUpdate(e,restrant)}>Edit Restaurant</button> */}
-          {/* <button onClick={handleDelete}>Delete Restaurant</button> */}
+          
         </form>
 
         {/* <div> */}
