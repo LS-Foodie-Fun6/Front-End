@@ -10,17 +10,17 @@
     box-shadow: 2px 5px 20px #637a7d;
 };
 
-    .home-header-one {
-        color: white;
-        font-size: 4rem;
-        animation-name: example;
+    h2 {
+        color: black;
+        
+        /* animation-name: example;
         animation-duration: 4s;
         position: relative;
         @keyframes example {
         0%   { left:0px; top:0px;}
         100%  { left:50%; top:0px;}
         };
-        animation-delay: 2s;
+        animation-delay: 2s; */
     };
 
 .res-link {
@@ -48,5 +48,13 @@ border-radius: 1rem;
     border-radius: .75rem;
     color: white;
     /* width: 50%; */
+}
 
+.search-bar {
+    padding: 0.75em;
+    width: 70%;
+    font-size: 1rem;
+    border: none;
+    margin: .5rem;
+    border-radius: .5rem;
 }

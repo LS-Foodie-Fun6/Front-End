@@ -82,7 +82,8 @@ const handleInputChange = event => {
             <h2 className="home-header-one">Welcome Back!</h2>
 
             <form>
-                <input className="Input"
+                <input 
+                className="search-bar"
                 type="text"
                 onChange={handleInputChange}
                 value={query}
@@ -102,17 +103,16 @@ const handleInputChange = event => {
             return (
             <Card>
                 <h3 className="name-string">{r.name}</h3>
-                <h3>Cuisine: {r.cuisine}</h3>
-                <h3>Location: {r.location}</h3>
-                <h3>Open: {r.opens}</h3>
-                <h3>Close: {r.closes}</h3>
-                <h3>Rating: {r.rating}</h3>
+                <h5>Cuisine: {r.cuisine}</h5>
+                <h5>Location: {r.location}</h5>
+                <h5>Hours: {r.opens}am - {r.closes}pm</h5>
+                <h5>Rating: {r.rating}</h5>
 
     
-                <Link className="card-button" to={`/editrestaurant/${r.id}`}>Edit</Link>
+                <Link className="card-link" to={`/editrestaurant/${r.id}`}>Edit</Link>
                 <button className="card-button" onClick={() => handleDelete(r.id)}>Delete</button>
-                <button className="card-button"><Link to={'/addreview'}>Add Review</Link></button>
-                <button className="card-button"><Link to={'/review'}>View Review</Link></button>
+                <Link className="card-link" to={'/addreview'}>Add Review</Link>
+                <Link className="home-link" to={'/review'}>View Review</Link>
                 
             </Card>
             )
