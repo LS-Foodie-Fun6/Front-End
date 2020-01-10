@@ -48,7 +48,7 @@ const HomeRestaurants = ({editRestaurant, deleteRestaurant, restar, history}) =>
         // p.id.toLowerCase().includes(query.toLowerCase()),
         // setRestaurant(info))
         setRestaurant(res.data)
-        console.log(res.data, 'restaurant list')
+        console.log(res.data, 'restaurant listaa')
     })
     .catch(err => {
         console.log(err)
