@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
-import home from '../components/homecss.css';
-import links from './navcss.css';
+import Homelink from '../components/homecss.css';
+// import links from './navcss.css';
 import styled from 'styled-components';
 
 
@@ -13,20 +13,6 @@ import EditRestaurantfile from './editRestaurant';
 import {deleteRestaurant} from '../actions/restaurantActions'
 
 
-const Header = styled.div`
-    background-color: #bdd358;
-    display:flex;
-    justify-content: space-evenly;
-    align-items: center;
-`;
-
-// const Buttons = styled.button`
-//     background-color: #e5625e;
-//     border: none;
-//     padding: .75rem;
-//     border-radius: 1rem;
-//     font-size: 1rem;
-// `;
 
 
 const HomeRestaurants = ({editRestaurant, deleteRestaurant, restar, history}) => {
@@ -61,11 +47,11 @@ const HomeRestaurants = ({editRestaurant, deleteRestaurant, restar, history}) =>
 // 3. take in id and changes.
     return(
         <div>
-            <Header>
-            <h2 className="header">Home</h2>
+            <div className="header-cont">
+            <h2 className="header">Welcome Back!</h2>
         
-            <Link className='links' to={'/addrestaurant'}>Add Restaurant</Link>
-            </Header>
+            <Link className='res-link' to={'/addrestaurant'}>Add Restaurant</Link>
+            </div>
             <AddRestaurant/>
             {/* <RestaurantCard/> */}
             
@@ -84,8 +70,8 @@ const HomeRestaurants = ({editRestaurant, deleteRestaurant, restar, history}) =>
            })}
 
 
-           
-            
+
+
         </div>
     )
 }

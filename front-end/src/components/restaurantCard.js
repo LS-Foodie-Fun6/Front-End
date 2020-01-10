@@ -1,5 +1,6 @@
 import React from "react";
 import {Link} from 'react-router-dom';
+import card from '../components/cardcss.css';
 
 const RestaurantCard = ({editRestaurant,restar}) => {
     
@@ -10,7 +11,7 @@ const RestaurantCard = ({editRestaurant,restar}) => {
 
 
     return (
-    <div className="restCard">
+    <div className="card">
         <h1>RESTAURANT CARD</h1>
         {/* <h3>{restar.name}</h3>
         <h3>{restar.cuisine}</h3>
