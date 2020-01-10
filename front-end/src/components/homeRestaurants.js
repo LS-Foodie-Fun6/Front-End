@@ -13,6 +13,25 @@ import EditRestaurantfile from './editRestaurant';
 import {deleteRestaurant} from '../actions/restaurantActions'
 
 
+const CardSection = styled.div`
+background-color: #e5e059;
+background-image: linear-gradient(147deg, #e5e059 0%, #bdd358 81%);
+display:flex;
+flex-wrap:wrap;
+justify-content: center;
+width: 100%;
+align-content: space-around;
+`;
+
+
+const Card = styled.div`
+background-color:white;
+width: 25%;
+border-radius: .5rem;
+color: #999799;
+padding:1rem;
+margin: .5rem;
+`;
 
 
 const HomeRestaurants = ({editRestaurant, deleteRestaurant, restar, history}) => {
@@ -55,21 +74,21 @@ const HomeRestaurants = ({editRestaurant, deleteRestaurant, restar, history}) =>
             <AddRestaurant/>
             <RestaurantCard/>
             
+        <CardSection>    
         {restaurant.map(r => {
             return (
-            <div className="card-section">    
-                <div className="rest-card">
+                <Card>
                     <h3>Name: {r.name}</h3>
-                    <h3>Cuisine:{r.cuisine}</h3>
+                    <h3>Cuisine: {r.cuisine}</h3>
                     <h3>Location: {r.location}</h3>
 
                     <Link className="card-button" to={`/editrestaurant/${r.id}`}>Edit</Link>
                     {/* <button onClick={(e) => handleUpdate(e,restar)}>Edit Restaurant</button> */}
                     <button className="card-button" onClick={() => handleDelete(r.id)}>Delete</button>
-                </div>
-            </div>
+                </Card>
             )
         })}
+        </CardSection>
 
         </div>
     )
@@ -83,6 +102,6 @@ const mapStatetoProps = state => {
 }
 
 export default connect(
-  mapStatetoProps,
-  {deleteRestaurant}
+mapStatetoProps,
+{deleteRestaurant}
 )(HomeRestaurants);

@@ -1,45 +1,39 @@
-
-.add-page{
+.edit-page{
     display: flex;
-    justify-content:flex-end;
-    background: url(../images/loginbgphoto.jpg) top center no-repeat;
+    justify-content:flex-start;
+    background: url(../images/editbg.jpg) bottom center no-repeat;
     background-size: 100%;
     height:100vh;
+    align-items:top;
+}
+
+
+.edit-container {
+    background-color: blue;
+    margin: 2rem;
+    width: 40rem;
+    border-radius: 1rem;
+    flex-wrap:wrap;
     align-items:center;
+    padding: 1rem;
 }
 
 
-.add-container {
-    background-color: #e5e059;
-    background-image: linear-gradient(147deg, #e5e059 0%, #bdd358 81%);
-margin: 2rem;
-/* height: 50vh; */
-width: 40rem;
-border-radius: 1rem;
-flex-wrap:wrap;
-align-items:center;
-padding: 1rem;
-box-shadow: 2px 5px 20px #637a7d;
-}
-
-
-.home-header {
+.edit-header {
     color: white;
     background-color: #e5625e;
     padding: .5rem;
-    font-size: 1.4rem;
     border-radius:.5rem;
+    font-size: 2rem;
+    width:50%;
     box-shadow: 2px 5px 20px #798835;
 }
 
 
-.input-div {
+.form {
     flex-wrap:wrap;
-    /* width: 70%; */
-    /* justify-content: space-around; */
     justify-content: center;
-    display:flex;
-    
+    display:flex; 
 }
 
 
@@ -53,7 +47,7 @@ box-shadow: 2px 5px 20px #637a7d;
 }
 
 
-.add-button {
+.edit-button {
     text-decoration:none;
     color: white;
     background-color: #e5625e;
@@ -63,5 +57,5 @@ box-shadow: 2px 5px 20px #637a7d;
     font-size:1rem;
     font-weight:bold;
     border:none;
-    width: 25%;
+    width: 20%;
 }

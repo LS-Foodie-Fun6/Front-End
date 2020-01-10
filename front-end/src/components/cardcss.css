@@ -7,22 +7,14 @@
     justify-content: center;
     flex-wrap:wrap;
     flex-direction: column;
-/* background-color: #e5e059;
-background-image: linear-gradient(147deg, #e5e059 0%, #e5625e 61%); */
+    box-shadow: 2px 5px 20px #637a7d;
 };
-
-.card-section {
-    background-color: lightgoldenrodyellow;
-    display:flex;
-    flex-wrap:wrap;
-    justify-content: space-around;
-
-}
 
 .rest-card{
     background-color: lightcyan;
     width: 30%;
     padding:1rem;
+
 }
 
 

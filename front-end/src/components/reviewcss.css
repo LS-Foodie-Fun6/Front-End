@@ -13,7 +13,8 @@ width: 30rem;
 border-radius: 1rem;
 box-shadow: 2px 5px 20px #637a7d;
 flex-wrap:wrap;
-align-items:center;
+/* align-items:center; */
+/* justify-content: center; */
 }
 
 .review-header {
@@ -21,6 +22,8 @@ align-items:center;
     background-color: #bdd358;
     padding: .5rem;
     font-size: 2rem;
+    width: 50%;
+    border-radius: .5rem;
 }
 
 .review-input {
