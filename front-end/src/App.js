@@ -14,6 +14,8 @@ import addRestaurant from './components/addRestaurant';
 import restaurantCard from './components/restaurantCard';
 import addReview from './components/addReview';
 import EditRestaurant from './components/editRestaurant';
+import EditReview from './components/editReview';
+import ReviewCard from './components/reviewCard';
 
 function App() {
   return (
@@ -28,7 +30,10 @@ function App() {
       <Route exact path="/addrestaurant" component ={addRestaurant} />
       <Route exact path="/editrestaurant/:id" render ={(props) =>  <EditRestaurant {...props}/>} />
       <Route exact path="/restaurantcard" component ={restaurantCard} />
-      <Route exact path="/review" component ={addReview} />
+      <Route exact path='/review' component ={ReviewCard}/>
+      <Route exact path="/addreview" component ={addReview} />
+      <Route exact path="/editreview/:id" render ={(props) =>  <EditReview {...props}/>} />
+      {/* <Route exact path="/editrestaurant/:id" render ={(props) =>  <EditRestaurant {...props}/>} /> */}
 
     </div>
   );

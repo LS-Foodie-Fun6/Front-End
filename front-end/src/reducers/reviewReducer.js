@@ -24,6 +24,7 @@ import {
     switch (action.type) {
 
         case FETCH_REVIEW: 
+        console.log('FETCH_REVIEW')
             return {
                 ...state,
                 loading: true, 
@@ -31,6 +32,7 @@ import {
             };
 
         case FETCH_REVIEW_SUCCESS: 
+        console.log('FETCH_REVIEW_SUCCESS')
             return {
                 ...state,
                 review: action.payload,

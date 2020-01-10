@@ -73,17 +73,7 @@ console.log(match.params.id)
         }); 
     };
      
-    // const [restrant, setRestrant] = useState({
-        
-    //     name: editRest && editRest.name,
-    //     cuisine: editRest && editRest.cuisine,
-    //     location: editRest && editRest.location,
-    //       opens: editRest && editRest.opens,
-    //        closes: editRest && editRest.closes,
-    //       rating: editRest && editRest.rating,
-    //       // photos: null
-  
-    //    });
+
 
 console.log(editRest, '*********')
     return (
@@ -157,7 +147,7 @@ console.log(editRest, '*********')
           /> */}
 
         
-          {/* <button><Link to={'/homerestaurants'}>Home Restaurants</Link></button> */}
+      
           
         <button className="edit-button">Submit</button>
         </form>
@@ -165,22 +155,7 @@ console.log(editRest, '*********')
         <div>
         
 
-          
-        {/* {restrant.map(restar => {
-          return <RestaurantCard key={restar.id} restar1={restar}/>
-        })} */}
-
-
-      {/* {restaurants2.map(restar => {
-        return<div className="restCard">
-              <h3>NAME: {restar.name}</h3>
-              <h3>CUISINE: {restar.cuisine}</h3>
-              <h3>LOCATION: {restar.location}</h3>
-              <h3>OPENS: {restar.opens}</h3>
-              <h3>CLOSES: {restar.closes}</h3>
-              <h3>RATING: {restar.rating}</h3>
-              </div>
-        })}  */}
+       
 
 
         </div>

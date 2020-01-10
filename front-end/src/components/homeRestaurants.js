@@ -37,20 +37,26 @@ margin: .5rem;
 const HomeRestaurants = ({editRestaurant, deleteRestaurant, restar, history}) => {
 
     const [restaurant,setRestaurant] = useState([]);
+    const [query, setQuery] = useState("");
 
     useEffect(() => {
-
     axiosWithAuth()
     .get('/restaurants')
     .then(res => {
-        setRestaurant(res.data)
+        
+        const info = res.data.filter(p =>
+        p.id.toLowerCase().includes(query.toLowerCase()),
+        setRestaurant(info))
+        // setRestaurant(res.data)
         console.log(res.data, 'restaurant list')
     })
     .catch(err => {
         console.log(err)
 
     }) 
-    },[])
+    },[query])
+
+    
     
     const handleDelete = id => {
 
@@ -64,28 +70,48 @@ const HomeRestaurants = ({editRestaurant, deleteRestaurant, restar, history}) =>
 // 1. edit form - restaurant data
 // 2. edit form will calll edit restaurant
 // 3. take in id and changes.
+
+const handleInputChange = event => {
+    setQuery(event.target.value);
+};
     return(
         <div>
-            <div className="header-cont">
+        <div className="header-cont">
             <h2 className="home-header-one">Welcome Back!</h2>
+
+            <form>
+                <input className="Input"
+                type="text"
+                onChange={handleInputChange}
+                value={query}
+                name="name"
+                placeholder="Search Restaurant"
+                autoComplete="off"
+                />
+            </form>
         
             {/* <Link className='res-link' to={'/addrestaurant'}>Add Restaurant</Link> */}
             </div>
             <AddRestaurant/>
             <RestaurantCard/>
-            
-        <CardSection>    
+        <CardSection>
         {restaurant.map(r => {
             return (
-                <Card>
-                    <h3>Name: {r.name}</h3>
-                    <h3>Cuisine: {r.cuisine}</h3>
-                    <h3>Location: {r.location}</h3>
+            <Card>
+                <h2>Name:</h2> <h3>{r.name}</h3>
+                <h2>Cuisine:</h2><h3>{r.cuisine}</h3>
+                <h2>Location:</h2><h3>{r.location}</h3>
+                <h2>Open:</h2><h3>{r.opens}</h3>
+                <h2>Close:</h2><h3>{r.closes}</h3>
+                <h2>Rating:</h2><h3>{r.rating}</h3>
 
-                    <Link className="card-button" to={`/editrestaurant/${r.id}`}>Edit</Link>
-                    {/* <button onClick={(e) => handleUpdate(e,restar)}>Edit Restaurant</button> */}
-                    <button className="card-button" onClick={() => handleDelete(r.id)}>Delete</button>
-                </Card>
+    
+                <Link className="card-button" to={`/editrestaurant/${r.id}`}>Edit</Link>
+                <button className="card-button" onClick={() => handleDelete(r.id)}>Delete</button>
+                <button className="button"><Link to={'/addreview'}>Add a Review</Link></button>
+                <button className="button"><Link to={'/review'}>Review</Link></button>
+                
+            </Card>
             )
         })}
         </CardSection>
