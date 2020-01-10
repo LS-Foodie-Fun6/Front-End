@@ -20,7 +20,7 @@ const RestaurantCard = ({editRestaurant,restar}) => {
         <h3>{restar.opens}</h3>
         <h3>{restar.closes}</h3>
         <h3>{restar.rating}</h3> */}
-
+ 
         
             {/* <div>
                 <h2>NAME: El Serape</h2>

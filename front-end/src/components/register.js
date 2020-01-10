@@ -59,7 +59,7 @@ const EntirePage = styled.div`
                 align-items: center;
             `;
 
-            const Button = styled.button`
+            const RegButton = styled.button`
             background-color: #e5625e;
             border: none;
             color: white;
@@ -70,7 +70,7 @@ const EntirePage = styled.div`
             padding: .5rem;
             text-decoration: none;
             border-radius:1rem;
-            width: 100px;
+            width: 100%;
             justify-content: center;
             `;
             
@@ -232,7 +232,7 @@ axios
         {/* --- End of Email Field --- */}
                 
             {/* --- Submit Button --- */}
-                    <Button className="button">Let's Eat!</Button>
+                    <RegButton className="button">Let's Eat!</RegButton>
             {/*  --- End of Submit Button --- */}
 
     {/* --- End of Form --- */}

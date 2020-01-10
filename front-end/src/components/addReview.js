@@ -44,7 +44,7 @@ return (
 
     <div className="review-page">
         <div className="review-container">
-        <h1 className="header">Add a Review</h1>
+        <h1 className="review-header">Add a Review</h1>
         <form onSubmit={handleSubmit}>
             <input
                 className="review-input"
@@ -92,11 +92,11 @@ return (
 
         </form>
 
-        <button className="button">Add</button>
+        <button className="review-button">Add</button>
 
         {/* <button><Link to={'/homerestaurants'}>Home Restaurants</Link></button> */}
-        <button className="button" onClick={handleUpdate}>Edit</button>
-        <button className="button" onClick={handleDelete}>Delete</button>
+        <button className="review-button" onClick={handleUpdate}>Edit</button>
+        <button className="review-button" onClick={handleDelete}>Delete</button>
     </div>
     </div>
     )

@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
-import Homelink from '../components/homecss.css';
+import home from '../components/homecss.css';
 // import links from './navcss.css';
 import styled from 'styled-components';
 
@@ -48,14 +48,14 @@ const HomeRestaurants = ({editRestaurant, deleteRestaurant, restar, history}) =>
     return(
         <div>
             <div className="header-cont">
-            <h2 className="header">Welcome Back!</h2>
+            <h2 className="home-header-one">Welcome Back!</h2>
         
-            <Link className='res-link' to={'/addrestaurant'}>Add Restaurant</Link>
+            {/* <Link className='res-link' to={'/addrestaurant'}>Add Restaurant</Link> */}
             </div>
             <AddRestaurant/>
             <RestaurantCard/>
             
-          {restaurant.map(r => {
+        {restaurant.map(r => {
             return (
             <div>
                 <h2>NAME:</h2> <h3>{r.name}</h3>
@@ -67,7 +67,7 @@ const HomeRestaurants = ({editRestaurant, deleteRestaurant, restar, history}) =>
                 <button onClick={() => handleDelete(r.id)}>Delete Restaurant</button>
             </div>
             )
-           })}
+        })}
 
         </div>
     )
