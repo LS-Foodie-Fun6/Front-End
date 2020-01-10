@@ -1,24 +1,41 @@
-@white: #ffffff;
-@gray: #999799;
-@red: #e5625e;
-@green: #bdd358;
-@yellow: #e5e059;
-
-
-
-.header{
+.header-cont {
+    background-color: #e5e059;
+    background-image: linear-gradient(147deg, #e5e059 0%, #bdd358 81%);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-weight:bold;
     color: white;
-    font-size: 2.2rem;
-    /* background-color: #bdd358; */
-    /* display:flex; */
-    /* justify-content:center; */
-    //height: 20vh;
-    /* align-items:center; */
+    text-decoration:none;
+    box-shadow: 2px 5px 20px #637a7d;
 };
+
+    .home-header-one {
+        color: white;
+        font-size: 4rem;
+        animation-name: example;
+        animation-duration: 4s;
+        position: relative;
+        @keyframes example {
+        0%   { left:0px; top:0px;}
+        100%  { left:50%; top:0px;}
+        };
+        animation-delay: 2s;
+    };
 
 .res-link {
     text-decoration:none;
-    /* color: white; */
-    /* background-color: white; */
-    
+    font-weight:bold;
+    text-decoration:none;
+    color: white;
 };
+
+.home-link {
+text-decoration:none;
+color: white;
+background-color: #e5625e;
+padding: .75rem;
+margin: .5rem;
+border-radius: 1rem;
+/* height:20vh; */
+}

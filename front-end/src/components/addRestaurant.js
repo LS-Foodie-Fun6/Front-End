@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import axiosWithAuth from '../utils/axiosWithAuth';
+import card from '../components/addcss.css';
+import styled from 'styled-components';
 
 import {createRestaurant, deleteRestaurant, editRestaurant} from '../actions/restaurantActions'
 import {Link} from 'react-router-dom';
@@ -7,27 +9,29 @@ import {connect} from 'react-redux';
 
 import RestaurantCard from './restaurantCard';
 
+
+
 // import {useDispatch} from 'react-redux';
 
 const AddRestaurant = (props) => {
       console.log(props)
 
 
-       
 
-     const [restrant, setRestrant] = useState({
+
+      const [restrant, setRestrant] = useState({
         
       name: '',
       cuisine: '',
       location: '',
-	    opens: 1,
- 	    closes: 2,
-	    rating: 3,
+      opens: 1,
+      closes: 2,
+      rating: 3,
 	    // photos: null
 
-     });
+});
 
- 
+
     const handleSubmit = e => {
         e.preventDefault();
         console.log(restrant, 'add restaurant')
@@ -51,20 +55,23 @@ const AddRestaurant = (props) => {
             [e.target.name]: e.target.value
         }); 
     };
-     
+
 
 
 
     return (
-     
+
 	//name, cuisine, location, opens, closes, rating, photos
 
 	//Need Description area??? -  input type = textarea
-
-      <div>
-          <h1>Add a Restaurant</h1>
-        <form onSubmit={handleSubmit}>
+    <div className="add-page">
+      <div className="add-container">
+          <h1 className="home-header">Add a Restaurant</h1>
+          <h4>Add information about one of your new favorite restaurants and share it with friends!</h4>
+        <form className="form" onSubmit={handleSubmit}>
+          <div className="input-div">
           <input
+            className="input"
             type="text"
             placeholder="Add Restaurant"
             name="name"
@@ -73,6 +80,7 @@ const AddRestaurant = (props) => {
           />
 
           <input
+            className="input"
             type="text"
             placeholder="Cuisine"
             name="cuisine"
@@ -82,6 +90,7 @@ const AddRestaurant = (props) => {
 
 
           <input
+            className="input"
             type="text"
             placeholder="Location"
             name="location"
@@ -91,6 +100,7 @@ const AddRestaurant = (props) => {
 
 
           <input
+            className="input"
             type="text"
             placeholder="Opens"
             name="opens"
@@ -98,7 +108,8 @@ const AddRestaurant = (props) => {
             onChange={handleChange}
           />
 
- 	        <input
+          <input
+            className="input"
             type="number"
             placeholder="Closes"
             name="closes"
@@ -106,14 +117,15 @@ const AddRestaurant = (props) => {
             onChange={handleChange}
           />
 
-	<input
+          <input
+            className="input"
             type="number"
             placeholder="Rating"
             name="rating"
             value={restrant.rating}
             onChange={handleChange}
           />
-
+</div>
 	{/* <input
             type="img"
             placeholder="Image"
@@ -124,12 +136,12 @@ const AddRestaurant = (props) => {
 
         
           {/* <button><Link to={'/homerestaurants'}>Home Restaurants</Link></button> */}
-          <button className="button">Add Restaurant</button>
+          <button className="add-button">Add Restaurant</button>
           {/* <button onClick={(e) => handleUpdate(e,restrant)}>Edit Restaurant</button> */}
           {/* <button onClick={handleDelete}>Delete Restaurant</button> */}
         </form>
 
-        <div>
+        {/* <div> */}
         {/* IS THIS NOT WORKING  B/C I DONT HAVE ANY RESTAURANTS YET TO MAP OVER?? */}
           {/* <h1>Upon fill out:</h1> 
             <h2>1. create a - RestaurantCard</h2>  */}
@@ -154,10 +166,10 @@ const AddRestaurant = (props) => {
 
         </div>
 
-      
 
-       
+
       </div>
+      // </div>
     );
   }
 

@@ -8,7 +8,7 @@ import Menu from './navmenu';
 
 
 const NavBarStyle = styled.div`
-height: 20vh;
+// height: 10vh;
 background-color: #e5625e;
 color: white;
 display: flex;

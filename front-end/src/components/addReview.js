@@ -3,6 +3,8 @@ import {createReview, deleteReview, editReview} from '../actions/reviewActions'
 //restaurant_id, cuisine, menuItemName, photo, price, rating, review
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
+// import img from '../images/review.jpg';
+import reviewcss from '../components/reviewcss.css';
 
 const AddReview = (props) => {
 
@@ -12,15 +14,15 @@ const AddReview = (props) => {
         cuisine: '',
         menuItemName: '',
           //photo: null,
-          price: 1,
-          rating: 1,
-          review: '',
+            price: 1,
+            rating: 1,
+            review: '',
     })
-       
+
     const handleSubmit = e => {
         e.preventDefault();
         console.log(item, 'add review')
-      props.createReview(item)
+        props.createReview(item)
     }
 
     // const handleDelete = e => {
@@ -30,7 +32,7 @@ const AddReview = (props) => {
     // const handleUpdate = e => {
     //     props.editReview(e.restaurant_id,)
     // }
-  
+
     const handleChange = e => {
         setItem({
             ...item,
@@ -41,10 +43,12 @@ const AddReview = (props) => {
 
 return (
 
-    <div>
-          <h1>Add a Review</h1>
+    <div className="review-page">
+        <div className="review-container">
+        <h1 className="review-header">Add a Review</h1>
         <form onSubmit={handleSubmit}>
             <input
+                className="review-input"
                 type="text"
                 placeholder="Cuisine"
                 name="cuisine"
@@ -52,6 +56,7 @@ return (
                 onChange={handleChange}
             />
             <input
+                className="review-input"
                 type="text"
                 placeholder="Menu Item Name"
                 name="menuItemName"
@@ -60,6 +65,7 @@ return (
             />
 
             <input
+                className="review-input"
                 type="number"
                 placeholder="Price"
                 name="price"
@@ -68,6 +74,7 @@ return (
             />
 
             <input
+                className="review-input"
                 type="number"
                 placeholder="Rating"
                 name="rating"
@@ -76,6 +83,7 @@ return (
             />
 
             <input
+                className="review-input"
                 type="textarea"
                 placeholder="Review"
                 name="review"
@@ -85,23 +93,21 @@ return (
 
         </form>
         
-        <button className="button"><Link to={'/review'}>Submit Review</Link></button>
+        <button className="review-button"><Link to={'/review'}>Submit Review</Link></button>
 
-        {/* <button><Link to={'/homerestaurants'}>Home Restaurants</Link></button> */}
-        {/* <button onClick={handleUpdate}>Edit Review</button> */}
-        {/* <button onClick={handleDelete}>Delete Review</button> */}
+    </div>
     </div>
     )
- 
+
 }
 
 const mapStatetoProps = state => {
     return {
       //restrantprops: state.review
     }
-  }
+}
 
 export default connect(
-  mapStatetoProps,
-  {createReview, editReview, deleteReview}
+    mapStatetoProps,
+    {createReview, editReview, deleteReview}
 )(AddReview);

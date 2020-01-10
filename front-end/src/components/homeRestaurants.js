@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import home from '../components/homecss.css';
-import links from './navcss.css';
+// import links from './navcss.css';
 import styled from 'styled-components';
 
 
@@ -13,20 +13,25 @@ import EditRestaurantfile from './editRestaurant';
 import {deleteRestaurant} from '../actions/restaurantActions'
 
 
-const Header = styled.div`
-    background-color: #bdd358;
-    display:flex;
-    justify-content: space-evenly;
-    align-items: center;
+const CardSection = styled.div`
+background-color: #e5e059;
+background-image: linear-gradient(147deg, #e5e059 0%, #bdd358 81%);
+display:flex;
+flex-wrap:wrap;
+justify-content: center;
+width: 100%;
+align-content: space-around;
 `;
 
-// const Buttons = styled.button`
-//     background-color: #e5625e;
-//     border: none;
-//     padding: .75rem;
-//     border-radius: 1rem;
-//     font-size: 1rem;
-// `;
+
+const Card = styled.div`
+background-color:white;
+width: 25%;
+border-radius: .5rem;
+color: #999799;
+padding:1rem;
+margin: .5rem;
+`;
 
 
 const HomeRestaurants = ({editRestaurant, deleteRestaurant, restar, history}) => {
@@ -68,11 +73,11 @@ const HomeRestaurants = ({editRestaurant, deleteRestaurant, restar, history}) =>
 
 const handleInputChange = event => {
     setQuery(event.target.value);
-  };
+};
     return(
         <div>
-            <Header>
-            <h2 className="header">Home</h2>
+        <div className="header-cont">
+            <h2 className="home-header-one">Welcome Back!</h2>
 
             <form>
                 <input className="Input"
@@ -85,33 +90,32 @@ const handleInputChange = event => {
                 />
             </form>
         
-            <Link className='links' to={'/addrestaurant'}>Add Restaurant</Link>
-            </Header>
+            {/* <Link className='res-link' to={'/addrestaurant'}>Add Restaurant</Link> */}
+            </div>
             <AddRestaurant/>
-            {/* <RestaurantCard/> */}
-        
-          {restaurant.map(r => {
+            <RestaurantCard/>
+        <CardSection>
+        {restaurant.map(r => {
             return (
-            <div>
-                <h2>NAME:</h2> <h3>{r.name}</h3>
-                <h2>CUISINE:</h2><h3>{r.cuisine}</h3>
-                <h2>LOCATION:</h2><h3>{r.location}</h3>
-                <h2>OPENS:</h2><h3>{r.opens}</h3>
-                <h2>CLOSES:</h2><h3>{r.closes}</h3>
-                <h2>RATING:</h2><h3>{r.rating}</h3>
+            <Card>
+                <h2>Name:</h2> <h3>{r.name}</h3>
+                <h2>Cuisine:</h2><h3>{r.cuisine}</h3>
+                <h2>Location:</h2><h3>{r.location}</h3>
+                <h2>Open:</h2><h3>{r.opens}</h3>
+                <h2>Close:</h2><h3>{r.closes}</h3>
+                <h2>Rating:</h2><h3>{r.rating}</h3>
 
-                <button className="button"><Link to={`/editrestaurant/${r.id}`}>Edit Restaurant</Link></button>
-                
+    
+                <Link className="card-button" to={`/editrestaurant/${r.id}`}>Edit</Link>
+                <button className="card-button" onClick={() => handleDelete(r.id)}>Delete</button>
                 <button className="button"><Link to={'/addreview'}>Add a Review</Link></button>
                 <button className="button"><Link to={'/review'}>Review</Link></button>
-                <button onClick={() => handleDelete(r.id)}>Delete Restaurant</button>
-            </div>
+                
+            </Card>
             )
-           })}
+        })}
+        </CardSection>
 
-
-           
-            
         </div>
     )
 }
@@ -121,9 +125,9 @@ const mapStatetoProps = state => {
     return {
         restrantOnProps: state.restaurantReducer
     }
-  }
+}
 
 export default connect(
-  mapStatetoProps,
-  {deleteRestaurant}
+mapStatetoProps,
+{deleteRestaurant}
 )(HomeRestaurants);
