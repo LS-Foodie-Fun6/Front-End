@@ -31,6 +31,8 @@ border-radius: .5rem;
 color: #999799;
 padding:1rem;
 margin: .5rem;
+justify-content: center;
+// display: flex;
 `;
 
 
@@ -44,10 +46,10 @@ const HomeRestaurants = ({editRestaurant, deleteRestaurant, restar, history}) =>
     .get('/restaurants')
     .then(res => {
         
-        const info = res.data.filter(p =>
-        p.id.toLowerCase().includes(query.toLowerCase()),
-        setRestaurant(info))
-        // setRestaurant(res.data)
+        // const info = res.data.filter(p =>
+        // p.id.toLowerCase().includes(query.toLowerCase()),
+        // setRestaurant(info))
+        setRestaurant(res.data)
         console.log(res.data, 'restaurant list')
     })
     .catch(err => {
@@ -95,21 +97,22 @@ const handleInputChange = event => {
             <AddRestaurant/>
             <RestaurantCard/>
         <CardSection>
+
         {restaurant.map(r => {
             return (
             <Card>
-                <h2>Name:</h2> <h3>{r.name}</h3>
-                <h2>Cuisine:</h2><h3>{r.cuisine}</h3>
-                <h2>Location:</h2><h3>{r.location}</h3>
-                <h2>Open:</h2><h3>{r.opens}</h3>
-                <h2>Close:</h2><h3>{r.closes}</h3>
-                <h2>Rating:</h2><h3>{r.rating}</h3>
+                <h3 className="name-string">{r.name}</h3>
+                <h3>Cuisine: {r.cuisine}</h3>
+                <h3>Location: {r.location}</h3>
+                <h3>Open: {r.opens}</h3>
+                <h3>Close: {r.closes}</h3>
+                <h3>Rating: {r.rating}</h3>
 
     
                 <Link className="card-button" to={`/editrestaurant/${r.id}`}>Edit</Link>
                 <button className="card-button" onClick={() => handleDelete(r.id)}>Delete</button>
-                <button className="button"><Link to={'/addreview'}>Add a Review</Link></button>
-                <button className="button"><Link to={'/review'}>Review</Link></button>
+                <button className="card-button"><Link to={'/addreview'}>Add Review</Link></button>
+                <button className="card-button"><Link to={'/review'}>View Review</Link></button>
                 
             </Card>
             )
