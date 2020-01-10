@@ -114,7 +114,7 @@ const handleInputChange = event => {
                 <h5>Rating: {r.rating} / 5</h5>
 
                 <Buttons>
-                <Link className="card-link" to={`/editrestaurant/${r.id}`}><button className="add-card-link">Edit  Post</button></Link>
+                <Link className="card-link" to={`/editrestaurant/${r.id}`}><button className="add-card-link">Edit this Post</button></Link>
                 <button className="card-button" onClick={() => handleDelete(r.id)}>Delete Post</button>
                 <Link to={'/addreview'}><button className="add-card-link">Add Review</button></Link>
                 <Link className="home-link" to={'/review'}><button className="add-card-link">View Review</button></Link>
