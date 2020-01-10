@@ -143,8 +143,8 @@ const AddRestaurant = (props) => {
 
         {/* <div> */}
         {/* IS THIS NOT WORKING  B/C I DONT HAVE ANY RESTAURANTS YET TO MAP OVER?? */}
-          <h1>Upon fill out:</h1> 
-            <h2>1. create a - RestaurantCard</h2> 
+          {/* <h1>Upon fill out:</h1> 
+            <h2>1. create a - RestaurantCard</h2>  */}
 
           
         {/* {restrant.map(restar => {

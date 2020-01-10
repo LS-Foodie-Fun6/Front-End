@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import {createReview, deleteReview, editReview} from '../actions/reviewActions'
 //restaurant_id, cuisine, menuItemName, photo, price, rating, review
 import {connect} from 'react-redux';
+// import img from '../images/review.jpg';
+import reviewcss from '../components/reviewcss.css';
 
 const AddReview = (props) => {
 
@@ -11,15 +13,15 @@ const AddReview = (props) => {
         cuisine: '',
         menuItemName: '',
           //photo: null,
-          price: 1,
-          rating: 1,
-          review: '',
+            price: 1,
+            rating: 1,
+            review: '',
     })
-       
+
     const handleSubmit = e => {
         e.preventDefault();
         console.log(item, 'add review')
-      props.createReview(item)
+        props.createReview(item)
     }
 
     const handleDelete = resta => {
@@ -29,7 +31,7 @@ const AddReview = (props) => {
     const handleUpdate = resta => {
         props.editReview(item.restaurant_id)
     }
-  
+
     const handleChange = e => {
         setItem({
             ...item,
@@ -40,8 +42,9 @@ const AddReview = (props) => {
 
 return (
 
-    <div>
-          <h1>Add a Review</h1>
+    <div className="review-page">
+        <div className="review-container">
+        <h1>Add a Review</h1>
         <form onSubmit={handleSubmit}>
             <input
                 type="text"
@@ -90,17 +93,18 @@ return (
         <button onClick={handleUpdate}>Edit Review</button>
         <button onClick={handleDelete}>Delete Review</button>
     </div>
+    </div>
     )
- 
+
 }
 
 const mapStatetoProps = state => {
     return {
       //restrantprops: state.review
     }
-  }
+}
 
 export default connect(
-  mapStatetoProps,
-  {createReview, editReview, deleteReview}
+    mapStatetoProps,
+    {createReview, editReview, deleteReview}
 )(AddReview);

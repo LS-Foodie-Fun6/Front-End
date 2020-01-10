@@ -11,8 +11,9 @@ const RestaurantCard = ({editRestaurant,restar}) => {
 
 
     return (
-    <div className="card">
-        <h1>RESTAURANT CARD</h1>
+        <div>
+        <div className="card">
+            <h1>RESTAURANT CARD</h1>
         {/* <h3>{restar.name}</h3>
         <h3>{restar.cuisine}</h3>
         <h3>{restar.location}</h3>
@@ -30,14 +31,15 @@ const RestaurantCard = ({editRestaurant,restar}) => {
                 <h2>RATING: 4</h2>
            </div> */}
     
- 
-    <button className="button"><Link to={'/review'}>Add Review</Link></button>
-    <button onClick={(e) => handleUpdate(e,restar)}>Edit Restaurant</button>
+
+        <button className="button"><Link to={'/review'}>Add Review</Link></button>
+        <button onClick={(e) => handleUpdate(e,restar)}>Edit Restaurant</button>
      {/* <button><Link to={'/homerestaurants'}>Home Restaurants</Link></button> */}
 
     </div>
+    </div> 
         )
     }
 
     
-export default RestaurantCard
+export default RestaurantCard;

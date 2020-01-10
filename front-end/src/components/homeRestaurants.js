@@ -53,7 +53,7 @@ const HomeRestaurants = ({editRestaurant, deleteRestaurant, restar, history}) =>
             <Link className='res-link' to={'/addrestaurant'}>Add Restaurant</Link>
             </div>
             <AddRestaurant/>
-            {/* <RestaurantCard/> */}
+            <RestaurantCard/>
             
           {restaurant.map(r => {
             return (
@@ -68,9 +68,6 @@ const HomeRestaurants = ({editRestaurant, deleteRestaurant, restar, history}) =>
             </div>
             )
            })}
-
-
-
 
         </div>
     )
