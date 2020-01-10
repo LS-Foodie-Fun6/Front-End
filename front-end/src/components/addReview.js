@@ -44,9 +44,10 @@ return (
 
     <div className="review-page">
         <div className="review-container">
-        <h1>Add a Review</h1>
+        <h1 className="header">Add a Review</h1>
         <form onSubmit={handleSubmit}>
             <input
+                className="review-input"
                 type="text"
                 placeholder="Cuisine"
                 name="cuisine"
@@ -54,6 +55,7 @@ return (
                 onChange={handleChange}
             />
             <input
+                className="review-input"
                 type="text"
                 placeholder="Menu Item Name"
                 name="menuItemName"
@@ -62,6 +64,7 @@ return (
             />
 
             <input
+                className="review-input"
                 type="number"
                 placeholder="Price"
                 name="price"
@@ -70,6 +73,7 @@ return (
             />
 
             <input
+                className="review-input"
                 type="number"
                 placeholder="Rating"
                 name="rating"
@@ -78,6 +82,7 @@ return (
             />
 
             <input
+                className="review-input"
                 type="textarea"
                 placeholder="Review"
                 name="review"
@@ -87,11 +92,11 @@ return (
 
         </form>
 
-        <button className="button">Add Review</button>
+        <button className="button">Add</button>
 
         {/* <button><Link to={'/homerestaurants'}>Home Restaurants</Link></button> */}
-        <button onClick={handleUpdate}>Edit Review</button>
-        <button onClick={handleDelete}>Delete Review</button>
+        <button className="button" onClick={handleUpdate}>Edit</button>
+        <button className="button" onClick={handleDelete}>Delete</button>
     </div>
     </div>
     )
