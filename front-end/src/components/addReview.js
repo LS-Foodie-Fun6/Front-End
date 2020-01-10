@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {createReview, deleteReview, editReview} from '../actions/reviewActions'
 //restaurant_id, cuisine, menuItemName, photo, price, rating, review
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 
 const AddReview = (props) => {
 
@@ -22,13 +23,13 @@ const AddReview = (props) => {
       props.createReview(item)
     }
 
-    const handleDelete = resta => {
-        props.deleteReview(item.restaurant_id)
-    }
+    // const handleDelete = e => {
+    //     props.deleteReview(encodeURI.restaurant_id)
+    // }
 
-    const handleUpdate = resta => {
-        props.editReview(item.restaurant_id)
-    }
+    // const handleUpdate = e => {
+    //     props.editReview(e.restaurant_id,)
+    // }
   
     const handleChange = e => {
         setItem({
@@ -83,12 +84,12 @@ return (
             />
 
         </form>
-
-        <button className="button">Add Review</button>
+        
+        <button className="button"><Link to={'/review'}>Submit Review</Link></button>
 
         {/* <button><Link to={'/homerestaurants'}>Home Restaurants</Link></button> */}
-        <button onClick={handleUpdate}>Edit Review</button>
-        <button onClick={handleDelete}>Delete Review</button>
+        {/* <button onClick={handleUpdate}>Edit Review</button> */}
+        {/* <button onClick={handleDelete}>Delete Review</button> */}
     </div>
     )
  
