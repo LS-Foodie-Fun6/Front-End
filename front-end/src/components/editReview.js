@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import axiosWithAuth from '../utils/axiosWithAuth';
 
-import {createRestaurant, deleteRestaurant, editRestaurant, fetchRestaurant} from '../actions/restaurantActions'
+import {createReview, deleteReview, editReview, fetchReview} from '../actions/reviewActions'
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 
@@ -9,7 +9,7 @@ import RestaurantCard from './restaurantCard';
 
 // import {useDispatch} from 'react-redux';
 
-const EditRestaurant = ({restar,editRestaurant,fetchRestaurant, match, restrantOnProps}) => {
+const EditRestaurant = ({restar,editReview,fetchReview, match, restrantOnProps}) => {
      //console.log(restar, 'restar!')
         console.log(restrantOnProps)
      const [editRest, setEditRest] = useState({})
@@ -26,10 +26,10 @@ const EditRestaurant = ({restar,editRestaurant,fetchRestaurant, match, restrantO
             rating: changes.rating,
               //photos: null
         }
-        editRestaurant(match.params.id,payload)
+        editReview(match.params.id,payload)
     }
     useEffect(() => {
-        fetchRestaurant()
+        fetchReview()
         console.log(restaurant, 'restttt')
     },[])
        
@@ -57,62 +57,52 @@ console.log(match.params.id)
      
 
 
-console.log(editRest, '*********')
+
     return (
      
 
       <div>
-          <h1>Edit Restaurant</h1>
-        <form onSubmit={(e) => handleUpdate(e,editRest)}>
-          <input
-            type="text"
-            placeholder="Add Restaurant"
-            name="name"
-            value={editRest && editRest.name}
-            onChange={handleChange}
-          />
+          <h1>Edit Review</h1>
+          <form onSubmit={(e) => handleUpdate(e,editRest)}>
+            <input
+                type="text"
+                placeholder="Cuisine"
+                name="cuisine"
+                value={editRest && editRest.cuisine}
+                onChange={handleChange}
+            />
+            <input
+                type="text"
+                placeholder="Menu Item Name"
+                name="menuItemName"
+                value={editRest && editRest.menuItemName}
+                onChange={handleChange}
+            />
 
-          <input
-            type="text"
-            placeholder="Cuisine"
-            name="cuisine"
-            value={editRest && editRest.cuisine}
-            onChange={handleChange}
-          />  
+            <input
+                type="number"
+                placeholder="Price"
+                name="price"
+                value={editRest && editRest.price}
+                onChange={handleChange}
+            />
 
+            <input
+                type="number"
+                placeholder="Rating"
+                name="rating"
+                value={editRest && editRest.rating}
+                onChange={handleChange}
+            />
 
-          <input
-            type="text"
-            placeholder="Location"
-            name="location"
-            value={editRest && editRest.location}
-            onChange={handleChange}
-          />  
+            <input
+                type="textarea"
+                placeholder="Review"
+                name="review"
+                value={editRest && editRest.review}
+                onChange={handleChange}
+            />
 
-
-          <input
-            type="text"
-            placeholder="Opens"
-            name="opens"
-            value={editRest && editRest.opens}
-            onChange={handleChange}
-          />
-
- 	        <input
-            type="number"
-            placeholder="Closes"
-            name="closes"
-            value={editRest && editRest.closes}
-            onChange={handleChange}
-          />
-
-	<input
-            type="number"
-            placeholder="Rating"
-            name="rating"
-            value={editRest && editRest.rating}
-            onChange={handleChange}
-          />
 
 	{/* <input
             type="img"
@@ -151,5 +141,5 @@ console.log(editRest, '*********')
 
 export default connect(
   mapStatetoProps,
-  {createRestaurant,deleteRestaurant, editRestaurant,fetchRestaurant}
+  {createReview,deleteReview, editReview,fetchReview}
 )(EditRestaurant);
