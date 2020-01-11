@@ -64,7 +64,7 @@ console.log(match.params.id)
         }
         setEditRest(itemToEdit)   
         console.log(editRest)
-    },[editRest])
+    },[])
     
     const handleChange = e => {
         setEditRest({
