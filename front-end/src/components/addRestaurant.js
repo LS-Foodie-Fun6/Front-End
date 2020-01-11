@@ -128,6 +128,7 @@ const AddRestaurant = (props) => {
 </div>
 
           <button className="add-button">Add Restaurant</button>
+
           
         </form>
 
