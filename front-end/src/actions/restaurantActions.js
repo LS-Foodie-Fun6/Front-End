@@ -107,7 +107,7 @@ export const deleteRestaurant = id => dispatch => {
         .delete(`/restaurants/${id}`)
         .then(response => {
             console.log(response)
-            localStorage.removeItem('token');
+            // localStorage.removeItem('token');
               
         dispatch({
             type: DELETE_RESTAURANT, 

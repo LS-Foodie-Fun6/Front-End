@@ -56,7 +56,8 @@ const HomeRestaurants = ({editRestaurant, deleteRestaurant, restar, history}) =>
         console.log(err)
 
     }) 
-    },[query])
+    },[restaurant])
+    
 
     
     
