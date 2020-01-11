@@ -3,18 +3,22 @@ import styled from 'styled-components';
 import ReactDOM from "react-dom";
 import { useForm } from "react-hook-form";
 import {Link} from 'react-router-dom';
-import img from '../images/loginbgphoto.jpg'
+// import img from '../images/loginbgphoto.jpg'
 import axiosWithAuth from '../utils/axiosWithAuth';
 import buttons from '../components/navcss.css';
-
+import img from '../images/loginbg.jpg'
 
 //--- Styled Components ---
 
 const EntirePage = styled.div`
+    background-image: url(${img});
+    background-size 100%;
+    align-items:top;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    
 `;
 
     const LoginBG = styled.div`
@@ -22,6 +26,7 @@ const EntirePage = styled.div`
         margin: 2rem;
         height: 60vh;
         display: flex;
+        box-shadow: 2px 5px 20px #5c6924;
         align-items: center;
         justify-content: space-around;
         width: 40rem;
@@ -134,7 +139,7 @@ export default function Login(props) {
     // --- Return Statement ---
     return (
     // --- Div container ---
-    <EntirePage styles={{ backgroundImage:`url(${img})` }}>
+    <EntirePage>
         <LoginBG>
             <LoginTitle>Login</LoginTitle>
             {/* <form onSubmit={handleSubmit(onSubmit)}> */}

@@ -35,6 +35,11 @@ justify-content: center;
 // display: flex;
 `;
 
+const Buttons = styled.div`
+align-items: center;
+justify-content:center;
+`;
+
 
 const HomeRestaurants = ({editRestaurant, deleteRestaurant, restar, history}) => {
 
@@ -67,7 +72,7 @@ const HomeRestaurants = ({editRestaurant, deleteRestaurant, restar, history}) =>
         setTimeout(()=> {history.push('/homerestaurants')} , 1000)
     }
 
-    const handleUpdate = (e ) => {
+    const handleUpdate = (e) => {
         //editRestaurant(e.target.id, )
     }
 // 1. edit form - restaurant data
@@ -83,7 +88,8 @@ const handleInputChange = event => {
             <h2 className="home-header-one">Welcome Back!</h2>
 
             <form>
-                <input className="Input"
+                <input 
+                className="search-bar"
                 type="text"
                 onChange={handleInputChange}
                 value={query}
@@ -103,18 +109,18 @@ const handleInputChange = event => {
             return (
             <Card>
                 <h3 className="name-string">{r.name}</h3>
-                <h3>Cuisine: {r.cuisine}</h3>
-                <h3>Location: {r.location}</h3>
-                <h3>Open: {r.opens}</h3>
-                <h3>Close: {r.closes}</h3>
-                <h3>Rating: {r.rating}</h3>
+                <h5>Cuisine: {r.cuisine}</h5>
+                <h5>Location: {r.location}</h5>
+                <h5>Hours: {r.opens}am - {r.closes}pm</h5>
+                <h5>Rating: {r.rating} / 5</h5>
 
-    
-                <Link className="card-button" to={`/editrestaurant/${r.id}`}>Edit</Link>
-                <button className="card-button" onClick={() => handleDelete(r.id)}>Delete</button>
-                <button className="card-button"><Link to={'/addreview'}>Add Review</Link></button>
-                <button className="card-button"><Link to={'/review'}>View Review</Link></button>
-                
+                <Buttons>
+                <Link className="card-link" to={`/editrestaurant/${r.id}`}><button className="add-card-link">Edit  Post</button></Link>
+                <button className="card-button" onClick={() => handleDelete(r.id)}>Delete Post</button>
+                <Link to={'/addreview'}><button className="add-card-link">Add Review</button></Link>
+                <Link className="home-link" to={'/review'}><button className="add-card-link">View Review</button></Link>
+                </Buttons>
+
             </Card>
             )
         })}

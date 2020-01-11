@@ -25,8 +25,8 @@ const AddRestaurant = (props) => {
       cuisine: '',
       location: '',
       opens: 1,
-      closes: 2,
-      rating: 3,
+      closes: 1,
+      rating: 1,
 	    // photos: null
 
 });
@@ -126,49 +126,16 @@ const AddRestaurant = (props) => {
             onChange={handleChange}
           />
 </div>
-	{/* <input
-            type="img"
-            placeholder="Image"
-            name="photos"
-            value={restrant.photos}
-            onChange={handleChange}
-          /> */}
 
-        
-          {/* <button><Link to={'/homerestaurants'}>Home Restaurants</Link></button> */}
           <button className="add-button">Add Restaurant</button>
+
           
         </form>
 
-        {/* <div> */}
-        {/* IS THIS NOT WORKING  B/C I DONT HAVE ANY RESTAURANTS YET TO MAP OVER?? */}
-          {/* <h1>Upon fill out:</h1> 
-            <h2>1. create a - RestaurantCard</h2>  */}
-
-          
-        {/* {restrant.map(restar => {
-          return <RestaurantCard key={restar.id} restar1={restar}/>
-        })} */}
-
-
-      {/* {restaurants2.map(restar => {
-        return<div className="restCard">
-              <h3>NAME: {restar.name}</h3>
-              <h3>CUISINE: {restar.cuisine}</h3>
-              <h3>LOCATION: {restar.location}</h3>
-              <h3>OPENS: {restar.opens}</h3>
-              <h3>CLOSES: {restar.closes}</h3>
-              <h3>RATING: {restar.rating}</h3>
-              </div>
-        })}  */}
-
-
         </div>
 
-
-
       </div>
-      // </div>
+      
     );
   }
 
